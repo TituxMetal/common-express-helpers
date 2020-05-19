@@ -1,0 +1,30 @@
+{
+  "author": "Titux Metal <github@lgdweb.fr>",
+  "description": "",
+  "files": [
+    "build/**/*"
+  ],
+  "license": "MIT",
+  "main": "./build/index.js",
+  "name": "@lgdweb/common-express-helpers",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TituxMetal/common-express-helpers.git"
+  },
+  "types": "./build/index.d.ts",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "yarn clean && tsc",
+    "clean": "del ./build/*",
+    "pub": "yarn version --patch && yarn build"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-validator": "^6.5.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "del-cli": "^3.0.1",
+    "typescript": "^3.9.3"
+  }
+}
