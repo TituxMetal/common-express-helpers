@@ -1,6 +1,6 @@
 {
   "author": "Titux Metal <github@lgdweb.fr>",
-  "description": "",
+  "description": "Reusable helpers for express server projects",
   "files": [
     "build/**/*"
   ],
@@ -16,7 +16,7 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "del ./build/*",
-    "pub": "yarn version --patch && yarn build"
+    "pub": "yarn version --patch && yarn build && yarn publish"
   },
   "dependencies": {
     "express": "^4.17.1",
