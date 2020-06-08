@@ -13,7 +13,7 @@
     "url": "https://github.com/TituxMetal/common-express-helpers.git"
   },
   "types": "./build/index.d.ts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "del ./build/*",
