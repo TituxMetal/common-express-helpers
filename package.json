@@ -17,15 +17,39 @@
   "scripts": {
     "build": "yarn clean && tsc",
     "clean": "del ./build/*",
-    "pub": "yarn version --patch && yarn build && yarn publish"
+    "pub": "yarn version --patch && yarn build && yarn publish",
+    "test": "jest --watch-all"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "coverageDirectory": "<rootDir>/test/report",
+    "coverageReporters": [
+      "text",
+      "html"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts)$": "<rootDir>/test/preprocessor.js"
+    }
   },
   "dependencies": {
     "express": "^4.17.1",
     "express-validator": "^6.5.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-typescript": "^7.10.1",
     "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.3",
+    "babel-jest": "^26.0.1",
     "del-cli": "^3.0.1",
+    "jest": "^26.0.1",
+    "ts-jest": "^26.1.0",
     "typescript": "^3.9.3"
   }
 }
