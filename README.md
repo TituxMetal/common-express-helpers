@@ -31,3 +31,27 @@ const verbose = process.env.NODE_ENVIRONMENT === 'development'
 
 connectMongoDb({ mongoOptions, mongoUri, verbose })
 ```
+
+## Setup Close On Exit
+
+Helper function that closes properly an Express server.
+
+### Parameters
+
+An instance of Express.
+
+### Usage
+
+```js
+import { setupCloseOnExit } from '@lgdweb/common-express-helpers'
+import express from 'express'
+
+const app = express()
+const port = process.env.PORT || 5000
+
+const server = app.listen(port, '0.0.0.0', () =>
+  console.info(`Server is listening on http://localhost:${port}`)
+)
+
+setupCloseOnExit(server)
+```
