@@ -55,3 +55,46 @@ const server = app.listen(port, '0.0.0.0', () =>
 
 setupCloseOnExit(server)
 ```
+
+## Get Details For Error
+
+Helper function that returns formated http error details based on some error types and using
+http-errors package.
+
+### Parameters
+
+A standard Error object.
+
+### Usage
+
+This helper function is used internally in the errorHandler middleware
+
+## Error Handler Middleware
+
+Middleware for handling errors from Express app that returns a formated error with some details base
+on the error type.
+
+### Parameters
+
+Standard parameters for Express middlewares:
+
+- **error** _Type: Error - Standard Error or HttpError instance for nice formated error details_
+- **req** _Type: Request - The request object from Express_
+- **res** _Type: Response - The Response object from Express_
+- **next** _Type: Next - The Next object from Express_
+
+### Usage
+
+```js
+import { errorHandler } from '@lgdweb/common-express-helpers'
+import express from 'express'
+
+const app = express()
+
+app.use(errorHandler)
+
+const port = process.env.PORT || 5000
+
+app.listen(port, '0.0.0.0', () =>
+    console.info(`Server is listening on http://localhost:${port}`)
+```
