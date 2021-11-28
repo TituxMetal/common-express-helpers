@@ -7,7 +7,7 @@
   "private": false,
   "repository": "https://github.com/TituxMetal/common-express-helpers.git",
   "types": "./build/index.js",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "files": [
     "build/**/*"
   ],
