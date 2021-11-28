@@ -98,3 +98,48 @@ const port = process.env.PORT || 5000
 app.listen(port, '0.0.0.0', () =>
     console.info(`Server is listening on http://localhost:${port}`)
 ```
+
+## Request Validator Middleware
+
+Middleware that validates a request using Express Validator and returns well formatted validation
+errors or continue if no error.
+
+### Parameters
+
+Validation rules same as express-validator package.
+
+### Usage
+
+```js
+import { errorHandler, requestValidator } from '@lgdweb/common-express-helpers'
+import express from 'express'
+import { body } from 'express-validator'
+
+const app = express()
+
+app.use(express.json())
+
+const emailField = [
+  body('email').exists().withMessage('Email field is required'),
+  body('email')
+    .notEmpty()
+    .withMessage('Email must not be empty')
+    .bail()
+    .isEmail()
+    .withMessage('Email must be a valid email')
+    .optional()
+    .normalizeEmail()
+]
+
+app.post('/api/users', requestValidator(emailField), async (req, res) => {
+  const { email } = req.body
+
+  res.status(201).json({ message: `User created with email: ${email}` })
+})
+
+app.use(errorHandler)
+
+const port = process.env.PORT || 5000
+
+app.listen(port, '0.0.0.0', () => console.info(`Server is listening on http://localhost:${port}`))
+```
