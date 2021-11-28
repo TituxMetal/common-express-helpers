@@ -143,3 +143,27 @@ const port = process.env.PORT || 5000
 
 app.listen(port, '0.0.0.0', () => console.info(`Server is listening on http://localhost:${port}`))
 ```
+
+## Not Found Middleware
+
+Middleware that handles all routes that not match and returns a 404 NotFound error.
+
+### Parameters
+
+Standard Express middleware parameters.
+
+### Usage
+
+```js
+import { errorHandler, notFound } from '@lgdweb/common-express-helpers'
+import express from 'express'
+
+const app = express()
+
+app.all('*', notFound)
+app.use(errorHandler)
+
+const port = process.env.PORT || 5000
+
+app.listen(port, '0.0.0.0', () => console.info(`Server is listening on http://localhost:${port}`))
+```
