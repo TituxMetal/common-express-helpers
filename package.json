@@ -7,15 +7,16 @@
   "private": false,
   "repository": "https://github.com/TituxMetal/common-express-helpers.git",
   "types": "./build/index.js",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "files": [
     "build/**/*"
   ],
   "scripts": {
     "build": "babel src -d build",
     "clear": "rm -rf build/*",
+    "demo": "babel-watch -L src/demo/index.js",
     "prebuild": "yarn clear",
-    "pub": "yarn build && yarn publish"
+    "pub": "yarn version --patch && yarn build && yarn publish"
   },
   "dependencies": {
     "express": "^4.17.1",
